@@ -1,0 +1,28 @@
+ssh -i c:\.Azure\LinuxKey.pem ubuntu@10.10.21.4
+source ~/.bashrc 
+conda activate ProcessingSite
+
+timedatectl
+sudo timedatectl set-timezone America/Phoenix
+
+
+from Shared_Processes.functions import total_processed 
+from Shared_Processes.functions import file_copied
+from Shared_Processes.functions import file_moved
+from Shared_Processes.functions import check_data 
+from Shared_Processes.functions import check_destination
+from PyPDF2 import PdfFileReader, PdfFileWriter
+
+
+if check_data(source, file, data):
+if check_destination(source, file, destination):
+
+
+PDF_statement = PdfFileReader(f'{source}/{file}', strict=False)
+
+
+
+J:\Admin\953(d)\2020\BackPages\953(d) Processed
+//10.10.10.18/Clients           /home/ubuntu/Clients            cifs    credentials=/home/ubuntu/.smbcredentials,iocharset=utf8,vers=3.0,gid=1000,uid=1000,file_mode=0777,dir_mode=0777,users 00
+
+//gpwafileshares.file.core.windows.net/import-exceptions /home/ubuntu/import-exceptions cifs nofail,vers=3.0,credentials=/etc/smbcredentials/gpwafileshares.cred,dir_mode=0777,file_mode=0777,serverino
