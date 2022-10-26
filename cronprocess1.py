@@ -2,7 +2,7 @@ import os
 import sys
 import pyodbc
 from queries import flexi_uploads
-from process1_flexicapture import flexicapture_uploads, flexicapture_assetmark, errors_transactions
+from process1_flexicapture import flexicapture_uploads, flexicapture_assetmark 
 
 '''
 -- Rayond James 7B5F4757-CB22-E211-969B-782BCB14085F
@@ -28,7 +28,7 @@ bankfolders = {
 
 
 if __name__ == '__main__':    
-    errors_transactions()
+    # errors_transactions()
     banks_ready = flexi_uploads()
     for x in banks_ready:
         folder = f'/home/ubuntu/Clients/Custodial_Bank Statements/{bankfolders[x[0]]}/Banking'

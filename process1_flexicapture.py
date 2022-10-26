@@ -28,15 +28,15 @@ def flexicapture_assetmark(bankname, source, month, year, count=0):
                         upload_to_flexi(f"{source}/holdings", file, file, data, year, month) 
                         send_to_endpoint(source, csv_file, data, month, year, 'transactions/', 'transactions')                       
                         count += 1                  
-        # uploaded_to_flexi('tkorpal@gpwa.com', f"{bankname} {month} {year}", count)
-        # uploaded_to_flexi('aandersen@gpwa.com', f"{bankname} {month} {year}", count)        
+        uploaded_to_flexi('tkorpal@gpwa.com', f"{bankname} {month} {year}", count)
+        uploaded_to_flexi('aandersen@gpwa.com', f"{bankname} {month} {year}", count)        
     except:
         pass        
 
 
 ## tested on 10/22/2022 -- main flexi upload code
 def flexicapture_uploads(bankname, source, month, year, count=0):
-    # try:
+    try:
         for file in os.listdir(source):  
             # print(file)          
             if (file.endswith('.pdf') or file.endswith('.PDF')):                        
@@ -46,10 +46,10 @@ def flexicapture_uploads(bankname, source, month, year, count=0):
                 if data and to_upload(data) and not (record_exists(data, file)) and os.path.exists(os.path.join(source, file)):
                     load_to_flexi(source, file, file, data, year, month)
                     count += 1              
-        # uploaded_to_flexi('tkorpal@gpwa.com', f"{bankname} {month} {year}", count)
-        # uploaded_to_flexi('aandersen@gpwa.com', f"{bankname} {month} {year}", count)
-    # except Exception as error:
-    #     print(error.args)
+        uploaded_to_flexi('tkorpal@gpwa.com', f"{bankname} {month} {year}", count)
+        uploaded_to_flexi('aandersen@gpwa.com', f"{bankname} {month} {year}", count)
+    except Exception as error:
+        print(error.args)
     
 ## tested on 10/22/2022 - checks error folder and uploaded files to AutoPop
 def errors_transactions():

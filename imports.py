@@ -8,7 +8,7 @@ from xlwt import Workbook
 from PyPDF2 import PdfFileReader, PdfFileWriter
 from queries import get_bankstatement_info, account_no_special, to_upload
 from functions import pdf_writer, move_file, check_data, check_folder, check_destination, file_info
-from postgres_updates import flexicapture_database, record_exists, scheduled_statements
+from postgres_updates import flexicapture_database, record_exists, scheduled_statements, update_to_null
 from endpoints import send_to_endpoint, errors_to_endpoint
 from emails import uploaded_to_flexi, uploaded_to_autopop
 from send_requests import schedule_d

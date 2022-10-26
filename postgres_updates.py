@@ -75,7 +75,18 @@ def update_database(data, filename, column):
             print(f"Record does not exists: {filename}")
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
- 
+
+## updates column field to null using filename ##
+def update_to_null(filename, column):
+    try:                        
+        update_query = """ UPDATE file_status set  """+ column +"""  = NULL where filename = %s """
+        cursor.execute(update_query, (filename,))       
+        conn.commit()
+        print(f"Database Updated -- NULL Field: {filename}")
+        
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    
  
 ## delete record using filename ##
 def delete_filename(filename):
@@ -110,9 +121,15 @@ def update_csv_database(data, filename, column):
 #     except (Exception, psycopg2.DatabaseError) as error:
 #         print(error)
 
+# def scheduled_statements():
+#     exists_query = """ select * from file_status where holdings is not null and transactions is not null and processed is null """
+#     cursor.execute(exists_query)
+#     data = cursor.fetchall()
+#     return data
+
 def scheduled_statements():
-    exists_query = """ select * from file_status where holdings is not null and transactions is not null and processed is null """
-    cursor.execute(exists_query)
+    exists_query = """ select * from file_status where holdings = %s and transactions is not null and processed is null """
+    cursor.execute(exists_query, ('2022-10-25',))
     data = cursor.fetchall()
     return data
 
