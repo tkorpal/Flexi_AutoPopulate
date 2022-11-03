@@ -44,7 +44,7 @@ def flexicapture_uploads(bankname, source, month, year, count=0):
                 data = account_no_special(account, year)
                 # print(data)
                 if data and to_upload(data) and not (record_exists(data, file)) and os.path.exists(os.path.join(source, file)):
-                    load_to_flexi(source, file, file, data, year, month)
+                    upload_to_flexi(source, file, file, data, year, month)
                     count += 1              
         uploaded_to_flexi('tkorpal@gpwa.com', f"{bankname} {month} {year}", count)
         uploaded_to_flexi('aandersen@gpwa.com', f"{bankname} {month} {year}", count)
@@ -221,14 +221,15 @@ def flexi_no_issues(count=0):
  
      
 if __name__ == '__main__':
-    bank = 'AssetMark' 
-    year = '2021'
-    month = '12'
-    source = f'/home/ubuntu/Clients/Custodial_Bank Statements/{bank}/banking/{year}/{month}/holdings/'
-    for file in os.listdir(source):
-        if (file.endswith('.pdf') or file.endswith('.PDF')):
-            data = account_no_special(file.split(' ')[1].split('-')[0], year)             
-            manually_upload_to_flexicapture(source, file, file, data, month, year)
+    errors_transactions()
+    # bank = 'AssetMark' 
+    # year = '2021'
+    # month = '12'
+    # source = f'/home/ubuntu/Clients/Custodial_Bank Statements/{bank}/banking/{year}/{month}/holdings/'
+    # for file in os.listdir(source):
+    #     if (file.endswith('.pdf') or file.endswith('.PDF')):
+    #         data = account_no_special(file.split(' ')[1].split('-')[0], year)             
+    #         manually_upload_to_flexicapture(source, file, file, data, month, year)
              
     # bank = 'BOK Financial -Bank of Oklahoma Financial'
     # years = ('2022',)

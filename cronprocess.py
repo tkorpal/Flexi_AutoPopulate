@@ -22,8 +22,8 @@ months = ('01','02','03','04','05','06','07','08','09','10','11','12',)
 
 bankfolders = {
     '0AD0C0F1-80AF-DD11-907E-001AA0C8FB71' : 'Fifth Third Bank',
-    '0E8F3927-258D-E311-ACA0-782BCB14085F' : 'BOK Financial -Bank of Oklahoma Financial',
-    'E11899D9-EFEB-DD11-924D-00221912ADEF' : 'AssetMark',
+    # '0E8F3927-258D-E311-ACA0-782BCB14085F' : 'BOK Financial -Bank of Oklahoma Financial',
+    # 'E11899D9-EFEB-DD11-924D-00221912ADEF' : 'AssetMark',
 }
 
 
