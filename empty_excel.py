@@ -60,9 +60,9 @@ def check_empty(bank_id, month, year, not_empty=0, empty=0):
     print(f"Empty: {empty}") 
     print(f"Not Empty: {not_empty}")
  
-bank_id = '0E8F3927-258D-E311-ACA0-782BCB14085F'
-month = '01'
-year = '2022'        
+bank_id = '7B5F4757-CB22-E211-969B-782BCB14085F'
+month = '12'
+year = '2021'        
         
 if __name__ == '__main__':
     check_empty(bank_id, month, year)

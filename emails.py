@@ -7,6 +7,15 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
+def helper_total_processed(subject, server, email):
+    msg = MIMEMultipart()
+    msg['From'] = os.environ.get('email_from')
+    msg['To'] = email
+    msg['Subject'] = subject
+    text = msg.as_string()     
+    server.sendmail('CRMUpdate@gpwa.com', email, text)     
+    server.quit()    
+
 def email_total_processed(processname, status, email):
     context = ssl.create_default_context()
     try:
@@ -40,3 +49,13 @@ def uploaded_to_flexi(email, processname, count):
 def uploaded_to_autopop(processname, count):   
     total = lambda x, y : True if x == 0 else email_total_processed(f"{processname} {y}", x, 'tkorpal@gpwa.com')
     total(count,'')
+    
+
+
+if __name__ == '__main__':    
+    uploaded_to_autopop(f"Uploaded to Autopopulate",  3)
+    bankname = 'test'
+    month = 'test'
+    year = 'test'
+    count = 10
+    uploaded_to_flexi('tkorpal@gpwa.com', f"{bankname} {month} {year}", count)
