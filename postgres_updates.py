@@ -121,8 +121,15 @@ def update_csv_database(data, filename, column):
 #     except (Exception, psycopg2.DatabaseError) as error:
 #         print(error)
 
+# def scheduled_statements():
+#     exists_query = """ select * from file_status where holdings is not null and transactions is not null and processed is null
+#                         order by flexicapture DESC"""
+#     cursor.execute(exists_query)
+#     data = cursor.fetchall()
+#     return data
+
 def scheduled_statements():
-    exists_query = """ select * from file_status where holdings is not null and transactions is not null and processed is null """
+    exists_query = """ select * from file_status where holdings = '2022-12-29' and transactions is not null and processed is null   """
     cursor.execute(exists_query)
     data = cursor.fetchall()
     return data

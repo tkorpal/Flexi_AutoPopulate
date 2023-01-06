@@ -6,8 +6,8 @@ from pathlib import Path
 from werkzeug.utils import secure_filename
 
 
-user = os.environ.get('request_user') 
-password = os.environ.get('request_password') 
+user = os.environ.get('request_user')  
+password = os.environ.get('request_password')  
 
 sys.path.append('/home/ubuntu/ProcessingSite/Schedule_D')
 from postgres_updates import update_database
@@ -16,7 +16,8 @@ base_url = 'https://autopopulate.azurewebsites.net'
 
 def send_request(resource, file):
     url = f"{base_url}/api/v1/{resource}"    
-    r = requests.post(url,auth=(user, password), files={'file': open(file, 'rb')})     
+    r = requests.post(url,auth=(user, password), files={'file': open(file, 'rb')}) 
+    print(f"Send Request Status Code: {r.status_code}")    
     return r.status_code
 
 def get_statement_id(filename):    

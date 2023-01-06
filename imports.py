@@ -14,6 +14,7 @@ from endpoints import send_to_endpoint, errors_to_endpoint
 from emails import uploaded_to_flexi, uploaded_to_autopop
 from send_requests import schedule_d
 from assetmark import main 
+from postgres_auto import delete_autopopulate_record
  
 
 # user = os.environ.get('sql_user')

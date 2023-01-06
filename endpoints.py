@@ -32,8 +32,9 @@ def send_to_endpoint(source, file, data, month, year, resource, database):
                     copy_file(source, file, error_folder[database], file) 
         else:
             print(f"Missing File: {resource}")
-    except Exception as error:          
-        print(f"{resource} {file} {error.args}")
+    except Exception as error:     
+             
+        print(f"Endpoint Error: {resource} {file} {error.args}")
 
     
 ## sends JSON and CSV files from errors folders: Holdings and Transactions up to Autopopulate ##    

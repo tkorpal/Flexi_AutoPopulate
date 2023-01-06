@@ -16,8 +16,8 @@ from process1_flexicapture import flexicapture_uploads, flexicapture_assetmark
 
 years = ('2022',)
 months = ('01','02','03','04','05','06','07','08','09','10','11','12',)
-# months = ('01',)
-# years = ('2022',)
+# months = ('12',)
+# years = ('2021',)
 
 
 bankfolders = {
